@@ -1,0 +1,279 @@
+*, :after , :before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+fieldset {
+    border: none;
+}
+
+/* Копировать с этой строки */
+.site-phone {
+    font-family: "Decima", Helvetica, Arial, sans-serif;
+}
+/* Close btn */
+.site-phone__close-btn {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+
+    padding: 10px;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: .2;
+    z-index: 999;
+}
+.site-phone__close-btn svg {
+    width: 15px;
+    height: 15px;
+}
+/* Preview btn */
+.site-phone__preview-btn {
+    height: 78px;
+    width: 78px;
+    position: fixed;
+    box-sizing: border-box;
+    bottom: 0;
+    right: 0;
+    margin: 50px;
+    background-color: rgb(243, 123, 123);
+    border: 4px solid #f3d0d2;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 0 0 0 rgba(243, 123, 123, 0.4);
+    animation: pulse 2s infinite ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .5s;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transition-delay: 0.4s, 0.4s;
+}
+.site-phone__preview-btn.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(0px, 145px, 0px) scale3d(0.001, 0.001, 1);
+}
+.site-phone__preview-icon {
+    z-index: 22;
+    fill: #fff;
+    position: relative;
+    height: 42px;
+    width: 42px;
+    transform: rotate3d(0, 0, 0, 0);
+}
+.site-phone__preview-icon:hover {
+    animation: shake 1.5s infinite;
+}
+
+/* Main content */
+.site-phone__form {
+    width: 100%;
+}
+.site-phone__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    transition: .8s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(100px, 145px, 0px) scale3d(0.001, 0.001, 1);
+}
+.site-phone__container.show {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
+    transition-delay: 0.4s, 0.4s;
+}
+.site-phone__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    flex-direction: column;
+    padding: 45px 0px 15px;
+}
+.site-phone__title{
+    text-align: center;
+    font: 20px "Decima", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    max-width: calc(100% );
+    color: #0a1d4c;
+    padding: 0;
+    line-height: 1;
+    display: block;
+    flex: 1;
+    letter-spacing: 0.02em;
+}
+.site-phone__subtitle {
+    font-size: 14px;
+    color: #2c303e;
+    margin: 10px 0px 0px;
+    font-family: "Decima", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+.site-phone__form-container {
+    position: relative;
+    padding: 0px 35px 0px;
+    border-radius: 10px;
+    min-height: 300px;
+    overflow: hidden;
+}
+.site-phone__input-name {
+    font-size: 13px;
+    font-family: "Decima", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: #2c303e;
+
+    font-weight: 400;
+}
+.site-phone__input {
+    width: 100%;
+    line-height: normal;
+
+    font-size: 14px;
+    height: 36px;
+    padding-left: 10px;
+    margin-top: 6px;
+    color: #414553;
+    cursor: text;
+    border: 1px solid #2c303e;
+    border-radius: 4px;
+}
+.site-phone__change-btn {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+
+    font: 15px Decima, Helvetica, Arial, sans-serif;
+    color: #df0b1d;
+    margin-top: 22px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: underline;
+}
+.site-phone__list-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    opacity: 0;
+    height: 0;
+    transform: translateX(-150%);
+    transition: .6s;
+}
+/* Стлили для скрытого списка */
+.site-phone__list-container.show {
+    opacity: 1;
+    transform: translateX(0);
+    height: auto;
+}
+.site-phone__list {
+    font-family: inherit;
+    line-height: normal;
+    font-size: 13px;
+    color: #414553;
+    cursor: text;
+    border: 1px solid #2c303e;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 35px;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 47%;
+}
+
+.site-phone__submit-btn {
+    height: 40px;
+    background-color: #df0b1d;
+    color: #fff;
+    font-family: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: none;
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 4px;
+}
+@media screen and (max-width: 320px) {
+    .site-phone__container {
+        margin: 15px 15px 15px 15px;
+    }
+    .site-phone__close-btn {
+        right: -17px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .site-phone__container {
+        left: 0;
+        top: 0;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        transform: translate3d(-150vh, 0px, 0px) scale3d(0.001, 0.001, 1);
+        border-radius: 0;
+    }
+    .site-phone__title {
+        padding: 25% 0 15% 0;
+    }
+    .site-phone__form-container {
+        height: 100%;
+    }
+    .site-phone__close-btn {
+        top: 10px;
+        right: 10px;
+    }
+    .site-phone__close-btn:hover {
+        opacity: .8;
+    }
+}
+@media  (min-width: 580px) {
+    .site-phone__container {
+        background-repeat: no-repeat;
+        background-image: url(/background.png);
+        background-position: right;
+        height: 406px;
+        width: 351px;
+        padding: 17px 12px 15px 39px;
+    }
+}
+@keyframes shake {
+    0%, 50%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(-10deg);
+    }
+    20%, 40% {
+        transform: rotate(10deg);
+    }
+}
+
