@@ -240,6 +240,7 @@ fieldset {
         margin: 0;
         transform: translate3d(-150vh, 0px, 0px) scale3d(0.001, 0.001, 1);
         border-radius: 0;
+        overflow-y: auto;
     }
     .site-phone__title {
         padding: 25% 0 15% 0;
